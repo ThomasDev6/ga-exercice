@@ -1,10 +1,11 @@
-name: Events exercices
+name: Push Event exercice
 
 on:
-  workflow_dispatch:
-
+  push:
+      branches:
+        - dev
 jobs:
-  print-event:
+  push-event:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,3 +16,7 @@ jobs:
       - name: Print the current time
         run: |
           echo $(date)
+
+      - name: Say hello
+        run: |
+          echo "Hello ${{ github.actor }}!"
