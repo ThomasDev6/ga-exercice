@@ -1,0 +1,14 @@
+name: Push Event 3 exercice
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+jobs:
+  push-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say hello chacal
+        run: |
+          echo "Hello ${{ github.actor }} gros chacal du monde!"
