@@ -1,0 +1,15 @@
+name: Event 4 exercice
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  print-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello Message
+        run: |
+          echo "Hello ${{ github.actor }} Jallu!"
