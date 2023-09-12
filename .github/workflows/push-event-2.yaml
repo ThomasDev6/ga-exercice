@@ -1,22 +1,14 @@
-name: Push Event exercice
+name: Push Event 2 exercice
 
 on:
   push:
-      branches:
-        - dev
+    branches-ignore:
+    - staging
 jobs:
   push-event:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print the event that triggered this workflow
-        run: |
-          echo ${{ github.event_name }}
-
-      - name: Print the current time
-        run: |
-          echo $(date)
-
-      - name: Say hello
+      - name: Say hello chacal
         run: |
           echo "Hello ${{ github.actor }}!"
