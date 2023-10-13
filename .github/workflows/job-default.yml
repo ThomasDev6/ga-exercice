@@ -96,7 +96,32 @@
 #        working-directory: ./node-app
 #        run: npm test
 
-name: Runners (Docker image runner)
+#name: Runners (Docker image runner)
+#
+#on:
+#  push:
+#    branches:
+#      - dev
+#
+#jobs:
+#  docker-image-runner:
+#    runs-on: ubuntu-latest
+#    container:
+#      image: node:latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Install dependancies
+#        working-directory: ./node-app
+#        run: npm install
+#
+#      - name: Run tests
+#        working-directory: ./node-app
+#        run: npm test
+
+
+name: Runners (Self-hosted runner)
 
 on:
   push:
@@ -105,9 +130,8 @@ on:
 
 jobs:
   docker-image-runner:
-    runs-on: ubuntu-latest
-    container:
-      image: node:latest
+    runs-on: self-hosted
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -119,3 +143,7 @@ jobs:
       - name: Run tests
         working-directory: ./node-app
         run: npm test
+
+      - name: Run app
+        working-directory: ./node-app
+        run: npm start
