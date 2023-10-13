@@ -30,7 +30,42 @@
 #          npm test
 
 
-name: Runners (Matrix-1)
+#name: Runners (Matrix-1)
+#
+#on:
+#  push:
+#    branches:
+#      - dev
+#
+#jobs:
+#  matrix-1:
+#    name: Node.js matrix-1
+#    runs-on: ubuntu-latest
+#
+#    strategy:
+#      matrix:
+#        node-version: [ 14, 16, 18 ]
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up Node.js
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#
+#      - name: Install dependencies
+#        working-directory: ./node-app
+#        run: |
+#          npm install
+#
+#      - name: Run tests
+#        working-directory: ./node-app
+#        run: |
+#          npm test
+
+name: Runners (Matrix-2)
 
 on:
   push:
@@ -39,12 +74,14 @@ on:
 
 jobs:
   matrix-1:
-    name: Node.js matrix-1
-    runs-on: ubuntu-latest
+    name: Node.js matrix-2
 
     strategy:
       matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
         node-version: [ 14, 16, 18 ]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
