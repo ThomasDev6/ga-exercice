@@ -107,7 +107,7 @@ jobs:
   docker-image-runner:
     runs-on: ubuntu-latest
     container:
-      image: node:12.18.3
+      image: node:latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
